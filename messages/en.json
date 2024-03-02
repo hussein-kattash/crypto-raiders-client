@@ -1,0 +1,85 @@
+{
+    "LocaleSwitcher":{
+      "ar":"Arabic",
+      "ru":"Russian",
+      "en":"English",
+      "select":"Select language"
+    },
+    "Header":{
+      "contactus":"Contact Us",
+      "whous":"Who Us",
+      "home":"Home",
+      "crypto_news":"Crypto News",
+      "posts":"Articles",
+      "partners":"Our Partners",
+      "explanations":"Explanations",
+      "platforms":"Platforms",
+      "projects":"Projects"
+    },
+    "LatestNews":{
+      "title":"Latest news",
+      "new1":"AI and Crypto Mining to More Than Double Energy Use by 2026, Report Says",
+      "new2":"Bitcoin and Ethereum Price Prediction as Tesla Still Holds $380 Million BTC and Another ETH ETF Gets Delayed",
+      "new3":"Binance and SEC Clash Over Evidence Production and Witness Depositions in Ongoing Legal Battle"
+    },
+    "LatestArticles":{
+      "title":"Latest articles"
+    },
+    "PostCard":{
+      "btnName":"Read more"
+    },
+    "socialMedia":{
+      "title":"Follow us",
+      "content":"Follow us on our social media platforms to receive all the latest updates",
+      "showmore":"Show more"
+    },
+    "recentlyPuplished":{
+      "title":"Recently Published"
+    },
+    "Contact":{
+      "title":"Contact us",
+      "text1":"Thank you for your interest in contacting the “Crypto Raiders” team! We are here to help you and answer your questions. You can contact us via Telegram from",
+      "text2": "Or fill out the form below and we will get back to you as soon as possible.",
+      "here":"here",
+      "email":"Email",
+      "cooperation":"Cooperation",
+      "problem":"Problem",
+      "ads":"Ads",
+      "consultation":"Consultation",
+      "select":"Select the reason for the connection",
+      "message":"Your message",
+      "placeholder":"Enter your message here",
+      "send":"Send",
+      "success":"The message is sent successfully",
+      "failed":"Failed"
+    },
+    "Partners":{
+      "title":"Partners"
+    },
+    "Footer":{
+      "followus":"Follow us",
+      "follow":"Follow us on social media platforms to receive all new",
+      "aboutus":"About Us",
+      "synopsis":"The Crypto Raiders team is the largest team in the Middle East that provides advisory services to individuals and companies looking to benefit from financial technology and digital currencies in their businesses. Our team is considered a reliable source of information and education for beginners in the field of digital currencies. We work hard to enhance awareness and promote commercial exchange in the crypto market permanently and continuously"
+    },
+    "whous":{
+      "title":"Who us ?",
+      "text1":"The Crypto Raiders team is a team of investors and professionals in the field of digital currencies and cryptocurrencies. The team is distinguished by extensive experience in trading and investing in digital currencies, working on market analysis and guiding investors towards suitable investment opportunities.",
+      "text2": "Crypto Raiders team aims to provide accurate information and reliable analysis for investors looking to enter the world of digital currencies. The team also works on guiding investors on how to make their investments safely and profitably.",
+      "text3":"In addition, the Crypto Raiders team provides consulting services for individuals and companies interested in using financial technology and digital currencies in their business activities. The Crypto Raiders team is considered a reliable source of information and guidance in the world of digital currencies, and aims to promote awareness and trade exchange in the crypto and financial markets."
+    },
+    "team":{
+      "title":"Team Members"
+    },
+    "channels":{
+      "channel1":"Official Group",
+      "channel2":"Official Channel",
+      "channel3":"Crypto Raiders Free Signals",
+      "channel4":"Airdrop Channel",
+      "channel5":"Twitter (X)",
+      "channel6":"YouTube"
+    },
+    "postdetails":{
+      "share":"Would you like to share this article"
+    }
+  }

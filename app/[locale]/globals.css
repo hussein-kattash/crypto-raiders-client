@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+*{
+    font-family: Tajawal;
+}
+
+h1 {
+    @apply text-2xl font-bold;
+  }
+  h2 {
+    @apply text-xl font-bold;
+  }
+  h3 {
+    @apply text-lg font-bold;
+  }
+
+  ul,li{
+    @apply list-disc
+  }
+
+  ol,li{
+    @apply list-decimal !important
+  }
+
+.footer{
+  /* background-color: #df971e; */
+  background: linear-gradient(90deg, rgb(223, 151, 30) 0%, rgb(171, 112, 12) 35%, rgb(118, 77, 8) 100%);
+  height: 100%;
+  /* margin-top: auto; */
+}
+
+.fader {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.fader__slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fader img {
+  background-color: transparent;
+  width: 1000px;
+  height: 100px;
+  position: absolute;
+}
+
+tr td{
+  border:1px solid;
+}
+
+.sidebar_{
+  transition: all ease 0.5s;
+}
+
+
+ 
+ 
