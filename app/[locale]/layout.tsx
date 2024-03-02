@@ -10,8 +10,8 @@ import Footer from "../components/Common/Footer";
 
 
 export const metadata: Metadata = {
-  title: "Cyptoraiders",
-  description: "Cyptoraiders",
+  title: "Cryptoraiders",
+  description: "The Crypto Raiders team is the largest team in the Middle East that provides advisory services to individuals and companies looking to benefit from financial technology and digital currencies in their businesses. Our team is considered a reliable source of information and education for beginners in the field of digital currencies. We work hard to enhance awareness and promote commercial exchange in the crypto market permanently and continuously",
 };
 
 export default function RootLayout({
