@@ -20,7 +20,7 @@ const LatestArticales = () => {
   const locale = useLocale();
 
   return (
-    <div className="mt-12  rounded-xl p-4">
+    <div className="mt-12  rounded-xl">
       <h2 className={`text-xl font-semibold border-b-1 border-primary ${locale ==='ru' ? 'w-[190px]' :'w-[150px]'}`}>
         {t("title")}...
       </h2>

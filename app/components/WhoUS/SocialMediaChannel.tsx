@@ -26,7 +26,7 @@ const SocialMediaChannel = () => {
       rtl: local === "ar" ? false : true,
       slides: {
         perView: window.innerWidth > 1000 ? 5 : window.innerWidth > 700 ? 4 : 3,
-        spacing: 16,
+        spacing: window.innerWidth > 1000 ? 16 : 8,
       },
     },
     [
@@ -65,7 +65,7 @@ const SocialMediaChannel = () => {
     {
       key:1,
       link: "https://t.me/CryptoRaider5",
-      image: "/channel1.jpg",
+      image: "/channel2.jpg",
       name: "channel1",
     },
     {
@@ -77,7 +77,7 @@ const SocialMediaChannel = () => {
     {
       key:3,
       link: "https://t.me/CryptoRaidersChart",
-      image: "/channel2.jpg",
+      image: "/channel1.jpg",
       name: "channel3",
     },
     {
@@ -111,7 +111,7 @@ const SocialMediaChannel = () => {
             className={`keen-slider__slide number-slide${channel.key} flex flex-col items-center justify-center`}
           >
             <img src={channel.image} className="md:!w-[90px] w-[50px] rounded-[50%]" />
-            <span className="md:!text-md sm:!text-sm text-xs">{t(channel.name)}</span>
+            <span className="md:!text-md sm:!text-sm text-xs text-center">{t(channel.name)}</span>
           </a>
         ))}
       </div>
@@ -128,7 +128,7 @@ const SocialMediaChannel = () => {
             onClick={(e: any) =>
               e.stopPropagation() || instanceRef.current?.prev()
             }
-            className="absolute top-[40%] text-2xl text-primary cursor-pointer font-bold"
+            className="absolute right-0 top-[40%] text-2xl text-primary cursor-pointer font-bold"
           />
         </>
       )}

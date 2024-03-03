@@ -88,9 +88,9 @@ const NewsCard = ({
   return (
     <div onClick={() => router.push(`/post/${_id}`)} className="grid grid-cols-12 gap-4 items-center cursor-pointer">
       <div className="md:!col-span-3 col-span-4">
-        <img className="rounded sm:!h-[160px] h-[130px] w-full" src={image ? image : '/no-image-placeholder-6f3882e0.webp'} />
+        <img className="rounded sm:!h-[160px] h-[100px] w-full" src={image ? image : '/no-image-placeholder-6f3882e0.webp'} />
       </div>
-      <div className="md:!col-span-6 col-span-8 flex flex-col gap-3">
+      <div className="md:!col-span-6 col-span-8 flex flex-col sm:!gap-3 gap-1">
         {locale === "ar" && (
           <div className="flex justify-start flex-wrap gap-2 items-center">
             {arCategory.map((category, index) => (
@@ -134,9 +134,9 @@ const SkeletonNewsCard = () => {
   return (
     <div className="grid grid-cols-12 gap-4 items-center">
       <Skeleton className="md:!col-span-3 col-span-4 rounded">
-        <div className="sm:!h-[160px] h-[130px] w-full rounded bg-default-300"></div>
+        <div className="sm:!h-[160px] h-[100px] w-full rounded bg-default-300"></div>
       </Skeleton>
-      <div className="md:!col-span-6 col-span-8 flex flex-col gap-3">
+      <div className="md:!col-span-6 col-span-8 flex flex-col sm:!gap-3 gap-2">
         <div className="flex gap-3 justify-start">
           <Skeleton className="w-[90px] rounded-3xl">
             <div className="h-8 w-[90px] rounded-lg bg-default-200"></div>

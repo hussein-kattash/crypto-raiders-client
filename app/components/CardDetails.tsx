@@ -64,7 +64,7 @@ const CardDetails = () => {
     }
   };
 
-  const shareUrl = "https://cryptoraiders.org";
+  const shareUrl = `https://cryptoraiders.org/${locale}/post/${params.id}`;
 
   return (
     <div className="mt-12 grid grid-cols-12 gap-4">
@@ -81,13 +81,13 @@ const CardDetails = () => {
               ))}
             </div>
             {data.image && (
-              <img src={data?.image} className="w-full h-[400px]" />
+              <img src={data?.image} className="w-full sm:!h-[400px] h-[220px]" />
             )}
             <div
               dangerouslySetInnerHTML={{ __html: getContentByLocale() as any }}
             />
             <div className="mt-10 font-bold">{t("share")} :</div>
-            <div className="flex border md:w-[50%] w-[80%] rounded flex-row gap-8 py-2 mt-0 justify-center mx-auto items-center">
+            <div className="flex  md:w-[50%] w-[90%] rounded flex-row gap-8 py-2 mt-0 justify-center mx-auto items-center">
               <FacebookShareButton url={shareUrl}>
                  <img src="/facebook.png" className="w-[40px]"/>
               </FacebookShareButton>

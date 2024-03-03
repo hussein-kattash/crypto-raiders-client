@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Button,
   Card,
@@ -31,9 +31,9 @@ import { IoClose } from "react-icons/io5";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 
-
 const Header = () => {
   let t = useTranslations("Header");
+  const header = useRef<any>();
   const { data, isError, isLoading } = useQuery({
     queryKey: ["partners"],
     queryFn: getAllPartners,
@@ -45,18 +45,24 @@ const Header = () => {
   const locale = useLocale();
 
   return (
-    <div className="w-full fixed z-[1000] top-0 bg-content1 flex justify-between items-center px-[5%] py-2 border-b">
-      <div className="xl:w-[90px] sm:!w-[150px] w-[130px] flex justify-between xl:!justify-start items-center">
+    <div ref={header} className="w-full fixed z-[100] h-[83px] top-0 bg-content1 flex justify-between items-center px-[5%] py-2 border-b">
+      <div className="w-[90px] flex justify-between xl:!justify-start items-center">
         <Link href={"/"}>
           <Image src="/logo.png" alt="Cryptoraiders" className="w-24" />
         </Link>
-        <Button onClick={()=>setOpenSidebar(!openSidebar)} className="xl:hidden flex" isIconOnly color="primary" aria-label="Like">
-           {!openSidebar && <FaBars className="text-xl"/>}
-           {openSidebar && <IoClose className="text-3xl"/>}
-        </Button> 
       </div>
-      <div className={`xl:hidden sidebar_ flex absolute sm:!top-[87px] top-[83px] z-10 ${(openSidebar) ? (locale === 'ar' ? 'right-0' : 'left-0') : (locale === 'ar' ? 'right-[-300px]' : 'left-[-300px]')}`}>
-        <Sidebar/>
+      <div
+        className={`xl:hidden sidebar_ flex absolute top-[83px] z-[20] ${
+          openSidebar
+            ? locale === "ar"
+              ? "right-0"
+              : "left-0"
+            : locale === "ar"
+            ? "right-[-300px]"
+            : "left-[-300px]"
+        }`}
+      >
+        <Sidebar closeSidebar={()=>setOpenSidebar(false)}/>
       </div>
       <div className="w-[70%] xl:flex hidden justify-center px-8">
         <div className="flex flex-row items-center justify-around w-full">
@@ -124,7 +130,7 @@ const Header = () => {
                         {data
                           .filter((patner) => patner.name.includes("Exchange"))
                           .map((obj, idx) => (
-                            <ListboxItem key={idx}>
+                            <ListboxItem key={idx} textValue={obj.name}>
                               <Link
                                 href={obj.link}
                                 key={idx}
@@ -171,7 +177,7 @@ const Header = () => {
                         {data
                           .filter((patner) => !patner.name.includes("Exchange"))
                           .map((obj, idx) => (
-                            <ListboxItem key={idx}>
+                            <ListboxItem key={idx} textValue={obj.name}>
                               <Link
                                 href={obj.link}
                                 key={idx}
@@ -199,8 +205,11 @@ const Header = () => {
           >
             <BsChatSquareText /> {t("contactus")}
           </Link>
-          <Link href="/who_us" className="hover:text-primary duration-500 flex gap-1 items-center">
-            <FaRegQuestionCircle/> {t("whous")}
+          <Link
+            href="/who_us"
+            className="hover:text-primary duration-500 flex gap-1 items-center"
+          >
+            <FaRegQuestionCircle /> {t("whous")}
           </Link>
           <Link
             href="https://t.me/Gue7araa"
@@ -210,7 +219,17 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div className="w-[180px]  flex  items-center justify-end gap-2">
+      <div className="xl:!w-[180px] w-[280px]  flex  items-center justify-end gap-2">
+        <Button
+          onClick={() => setOpenSidebar(!openSidebar)}
+          className="xl:hidden flex"
+          isIconOnly
+          color="primary"
+          aria-label="Like"
+        >
+          {!openSidebar && <FaBars className="text-xl" />}
+          {openSidebar && <IoClose className="text-3xl" />}
+        </Button>
         <LocaleSwitcherSelect />
         <ThemeSwitcher />
       </div>

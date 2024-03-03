@@ -92,7 +92,7 @@ const LatestPosts = ({ data, isLoading }: Props) => {
         </div>
       )}
       {data && !isLoading && (
-        <div ref={ref} className="keen-slider w-full">
+        <div ref={ref} className="keen-slider w-full py-4">
           {data?.map((post, index) => (
             <div
               key={index}

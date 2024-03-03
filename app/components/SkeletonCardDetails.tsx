@@ -19,7 +19,7 @@ const SkeletonCardDetails = () => {
           <div className="h-8 w-[130px]  rounded-3xl bg-default-300"></div>
         </Skeleton>
       </div>
-      <Skeleton className="h-[400px] rounded w-[100%]">
+      <Skeleton className="sm:!h-[400px] h-[220px] rounded w-[100%]">
         <div className="bg-default-300"></div>
       </Skeleton>
       <div className="space-y-3 px-3 w-[100%]">

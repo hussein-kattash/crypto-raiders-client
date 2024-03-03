@@ -24,7 +24,10 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllPartners } from "@/app/services/getAllPartners";
 import { ListboxWrapper } from "../ListboxWrapper";
 
-const Sidebar = () => {
+type Props = {
+  closeSidebar:()=>void;
+}
+const Sidebar = ({closeSidebar}:Props) => {
   const t = useTranslations("Header");
   const { data, isError, isLoading } = useQuery({
     queryKey: ["partners"],
@@ -87,14 +90,15 @@ const Sidebar = () => {
         aria-label="Dynamic Actions"
       >
         {(item) => (
-          <ListboxItem key={item.key}>
+          <ListboxItem key={item.key} textValue={item.label}>
             {item.route ? (
               <Link
+                onClick={closeSidebar}
                 href={item.route}
                 className="hover:text-primary flex items-center justify-start gap-2 text-lg"
               >
                 <span>{item.icon}</span>
-                {t(item.label)}
+                 <span>{t(item.label)}</span>
               </Link>
             ) : (
               <Dropdown className="relative">
@@ -115,6 +119,7 @@ const Sidebar = () => {
                       setOpenDropdown2(false), setOpenDropdown1(!openDropdown1);
                     }}
                     className="text-md flex flex-row justify-between"
+                    textValue="platforms"
                   >
                     <span className="text-md flex items-center flex-row justify-between">
                       {t("platforms")}
@@ -139,7 +144,7 @@ const Sidebar = () => {
                                 patner.name.includes("Exchange")
                               )
                               .map((obj, idx) => (
-                                <ListboxItem key={idx}>
+                                <ListboxItem key={idx} textValue={obj.name}>
                                   <Link
                                     href={obj.link}
                                     key={idx}
@@ -164,6 +169,7 @@ const Sidebar = () => {
                       setOpenDropdown2(!openDropdown2), setOpenDropdown1(false);
                     }}
                     className="text-md flex flex-row"
+                    textValue="projects"
                   >
                     <span className="text-md flex items-center flex-row justify-between">
                       {t("projects")}
@@ -188,7 +194,7 @@ const Sidebar = () => {
                                 (patner) => !patner.name.includes("Exchange")
                               )
                               .map((obj, idx) => (
-                                <ListboxItem key={idx}>
+                                <ListboxItem key={idx} textValue={obj.name}>
                                   <Link
                                     href={obj.link}
                                     key={idx}
