@@ -65,7 +65,7 @@ const LatestNewsCard = ({_id,artitle,entitle,rutitle,date}:Props) => {
 
   return (
     <div className="border-b pb-4 mb-6">
-      <h2 className="xl:!text-lg sm:!text-base text-sm font-medium cursor-pointer hover:underline decoration-primary">
+      <h2 onClick={() => route.push(`/post/${_id}`)} className="xl:!text-lg sm:!text-base text-sm font-medium cursor-pointer hover:underline decoration-primary">
         {locale === 'ar' ? artitle : locale === 'en' ? entitle : rutitle}
       </h2>
       <div className="text-xs flex justify-start items-center gap-1 mt-4">
