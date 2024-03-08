@@ -77,8 +77,8 @@ const CardDetails = () => {
           <div className="flex flex-col items-start gap-8 p-4">
             <h2 className="md:!text-3xl text-xl font-semibold">{getTitleByLocale()}</h2>
             <div className="flex justify-center gap-2">
-              {getCategoryByLocale()?.map((category) => (
-                <Chip color="primary">{category}</Chip>
+              {getCategoryByLocale()?.map((category,idx) => (
+                <Chip key={idx} color="primary">{category}</Chip>
               ))}
             </div>
             {data.image && (
