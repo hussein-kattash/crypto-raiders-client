@@ -33,7 +33,7 @@ const Footer = () => {
     },
   ];
   return (
-    <div className="footer mt-20 px-[5%] py-8 text-white">
+    <div className="footer px-[5%] py-8 text-white">
       <div className="mt-[0px] w-[100%] md:grid md:grid-cols-12 flex flex-col gap-10">
         <div className="col-span-4">
           <img src="/B.png" className="w-[80px]" />

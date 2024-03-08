@@ -32,7 +32,7 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
   return (
     <div>
       <Card
-        className="w-[100%] min-h-[350px] flex flex-col justify-start it"
+        className="w-[100%] min-h-[350px] flex flex-col justify-start"
         shadow="sm"
         isPressable
         onPress={() => router.push(`/post/${_id}`)}

@@ -18,12 +18,16 @@
     },
     "LatestNews":{
       "title":"Latest news",
+      "news":"News",
       "new1":"AI and Crypto Mining to More Than Double Energy Use by 2026, Report Says",
       "new2":"Bitcoin and Ethereum Price Prediction as Tesla Still Holds $380 Million BTC and Another ETH ETF Gets Delayed",
       "new3":"Binance and SEC Clash Over Evidence Production and Witness Depositions in Ongoing Legal Battle"
     },
     "LatestArticles":{
       "title":"Latest articles"
+    },
+    "LatestAds":{
+      "title":"Ads"
     },
     "PostCard":{
       "btnName":"Read more"
@@ -54,7 +58,7 @@
       "failed":"Failed"
     },
     "Partners":{
-      "title":"Partners"
+      "title":"Our Partners"
     },
     "Footer":{
       "followus":"Follow us",
@@ -81,5 +85,14 @@
     },
     "postdetails":{
       "share":"Would you like to share this article"
+    },
+    "ImportantExplanations":{
+      "title":"Important explanations"
+    },
+    "Important":{
+      "title":"Important"
+    },
+    "MiscellaneousArticles":{
+      "title":"Miscellaneous Articles"
     }
   }

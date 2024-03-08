@@ -14,6 +14,7 @@ import {
   TelegramShareButton,
   TwitterShareButton,
 } from "react-share";
+import AllAds from "./AllAds";
 
 const CardDetails = () => {
   const locale = useLocale();
@@ -65,7 +66,7 @@ const CardDetails = () => {
   };
 
   const shareUrl = `https://cryptoraiders.org/${locale}/post/${params.id}`;
-
+ 
   return (
     <div className="mt-12 grid grid-cols-12 gap-4">
       <div
@@ -100,6 +101,9 @@ const CardDetails = () => {
               <TwitterShareButton url={shareUrl}>
               <img src="/twitter.png" className="w-[40px]"/>
               </TwitterShareButton>
+            </div>
+            <div className="w-[100%]">
+              <AllAds/>
             </div>
           </div>
         )}

@@ -47,7 +47,7 @@ const LatestNews = () => {
           if (mouseOver) return;
           timeout = setTimeout(() => {
             slider.next();
-          }, 2000);
+          }, 5000);
         }
 
         slider.on("created", () => {
@@ -69,9 +69,9 @@ const LatestNews = () => {
   );
   return (
     <div className="flex w-[100%] items-center px-[5%] pt-4">
-      <h2 className="shadow-2xl w-[20%] sm:!text-lg text-sm md:!text-xl font-semibold flex justify-start items-center gap-2">
+      <h2 className="w-[20%] sm:!text-lg text-sm font-semibold flex justify-start items-center gap-2">
         <ImFire className="text-primary" />
-        {t("title")} :
+         {t("title")} 
       </h2>
       <div className="w-[80%]  flex items-center">
         {data && !isLoading && (
@@ -79,7 +79,7 @@ const LatestNews = () => {
             {data.posts.map((item, index) => (
               <div
                 key={index}
-                className="keen-slider__slide number-slide1 flex justify-center text-xs md:!text-sm"
+                className={`keen-slider__slide number-slide${index + 1} flex justify-start  text-xs md:!text-sm`}
               >
                 {locale === 'ar' ? item.title.ar : locale === "en" ? item.title.en : item.title.ru}
               </div>

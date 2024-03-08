@@ -1,13 +1,13 @@
 import {Pathnames} from 'next-intl/navigation';
 
-export const locales = ['en', 'ru', 'ar'] as const;
+export const locales = ['ar', 'en', 'ru'] as const;
 
 export const pathnames = {
   '/': '/',
   '/pathnames': {
+    ar: '/pathnames',
     en: '/pathnames',
     ru: '/pathnames',
-    ar: '/pathnames'
   }
 } satisfies Pathnames<typeof locales>;
 

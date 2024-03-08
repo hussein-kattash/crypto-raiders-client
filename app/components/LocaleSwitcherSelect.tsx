@@ -32,7 +32,7 @@ const LocaleSwitcherSelect = () => {
     selectedKeys={[locale]}
   >
     {locales.map((locale) => (
-      <SelectItem key={locale} value={locale}>
+      <SelectItem key={locale} textValue={t(locale)}>
          <div className="flex justify-start items-center gap-2">
           {locale === 'en' && <img className="w-5" src="/us.png"/>}
           {locale === 'ru' && <img className="w-5" src="/russian.png"/>}

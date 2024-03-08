@@ -33,7 +33,7 @@ export default function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Providers>
               <Header />
-              <div className="mt-[100px]">
+              <div className="py-[100px] bg-content1">
               <LatestNews/>
               <main className="px-[5%] py-4">{children}</main>
               </div>

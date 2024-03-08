@@ -4,6 +4,7 @@ import React from "react";
 import { getAllAds } from "../services/getAllAds";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { useTranslations } from "next-intl";
 
 const AllAds = () => {
   const { data, isError, isLoading } = useQuery({
@@ -11,66 +12,60 @@ const AllAds = () => {
     queryFn: getAllAds,
   });
 
-  const [opacities, setOpacities] = React.useState<number[]>([]);
-
-  const [sliderRef] = useKeenSlider<HTMLDivElement>(
-    {
-      slides: !isLoading ? data?.length : 3,
-      loop: true,
-      detailsChanged(s) {
-        const new_opacities = s.track.details.slides?.map(
-          (slide) => slide.portion
-        );
-        setOpacities(new_opacities);
-      },
+  const [ref] = useKeenSlider<HTMLDivElement>({
+    loop: true,
+  },
+  [
+    (slider) => {
+      let timeout: ReturnType<typeof setTimeout>
+      let mouseOver = false
+      function clearNextTimeout() {
+        clearTimeout(timeout)
+      }
+      function nextTimeout() {
+        clearTimeout(timeout)
+        if (mouseOver) return
+        timeout = setTimeout(() => {
+          slider.next()
+        }, 4000)
+      }
+      slider.on("created", () => {
+        slider.container.addEventListener("mouseover", () => {
+          mouseOver = true
+          clearNextTimeout()
+        })
+        slider.container.addEventListener("mouseout", () => {
+          mouseOver = false
+          nextTimeout()
+        })
+        nextTimeout()
+      })
+      slider.on("dragStarted", clearNextTimeout)
+      slider.on("animationEnded", nextTimeout)
+      slider.on("updated", nextTimeout)
     },
-    [
-      (slider) => {
-        let timeout: ReturnType<typeof setTimeout>;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 4000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
-  );
+  ]
+  )
+
+  const t = useTranslations("LatestAds")
+
+ 
 
   return (
-    <div className="mt-12">
+    <div className="mt-12 flex flex-col justify-center items-center mx-auto lg:!w-[60%] sm:!w-[80%] w-[100%]">
+      <span className="text-xs text-center">- {t("title")} -</span>
       {data && !isLoading && (
-        <div ref={sliderRef} className="fader">
+        <div ref={ref} className="keen-slider m-2 rounded">
           {data.map((ads, idx) => (
             <a
               href={ads.link}
               target="_blank"
               key={idx}
-              className="fader__slide"
-              style={{ opacity: opacities[idx] }}
+              className="keen-slider__slide number-slide1 sm:!w-[500px] w-[100%] h-[50px] sm:!h-[100px]"
             >
-              <img className="w-[800px] h-[100px]" src={ads.image} />
+              <img className="h-full w-full" src={ads.image} />
             </a>
-          ))}
+          ))} 
         </div>
       )}
     </div>

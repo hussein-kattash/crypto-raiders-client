@@ -16,7 +16,7 @@ const SocialMediaCard = () => {
           className="col-span-6 flex flex-col justify-center items-center"
         >
           <img src="/channel2.jpg" className="w-[50px] rounded-[50%] sp" />
-          <span className="text-sm">{tt("channel1")}</span>
+          <span className="text-sm text-center">{tt("channel1")}</span>
         </a>
         <a
           target="_blank"
@@ -24,7 +24,7 @@ const SocialMediaCard = () => {
           className="col-span-6 flex flex-col justify-center items-center"
         >
           <img src="/channel2.jpg" className="w-[50px] rounded-[50%]" />
-          <span className="text-sm">{tt("channel2")}</span>
+          <span className="text-sm text-center">{tt("channel2")}</span>
         </a>
         <a
           target="_blank"
@@ -32,7 +32,7 @@ const SocialMediaCard = () => {
           className="col-span-6 flex flex-col justify-center items-center"
         >
           <img src="/channel1.jpg" className="w-[50px] rounded-[50%]" />
-          <span className="text-sm">{tt("channel3")}</span>
+          <span className="text-sm text-center">{tt("channel3")}</span>
         </a>
         <a
           target="_blank"
@@ -40,7 +40,7 @@ const SocialMediaCard = () => {
           className="col-span-6 flex flex-col justify-center items-center"
         >
           <img src="/twitter.png" className="w-[50px] rounded-[50%]" />
-          <span className="text-sm">{tt("channel5")}</span>
+          <span className="text-sm text-center">{tt("channel5")}</span>
         </a>
       </div>
       <Link className="mt-4 text-xs hover:underline hover:decoration-primary" href={'/who_us'}>{t("showmore")}</Link>
