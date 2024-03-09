@@ -81,7 +81,11 @@ const NewsCard = ({
   const locale = useLocale();
 
   const formattedDate = new Date(date as Date);
-  const formattedDateString = formattedDate.toLocaleDateString();
+  const formattedDateString = formattedDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
 
   const router = useRouter()
 
@@ -121,9 +125,9 @@ const NewsCard = ({
         <p className="font-medium sm:text-md text-sm hover:underline hover:decoration-primary">
           {locale === "ar" ? artitle : locale === "en" ? entitle : rutitle}
         </p>
-        <div className="flex flex-row items-center gap-1">
+        <div className="flex flex-row text-sm items-center gap-1">
           <LuClock3 />
-          <span className="text-sm">{formattedDateString}</span>
+          <span>{formattedDateString}</span>
         </div>
       </div>
     </div>

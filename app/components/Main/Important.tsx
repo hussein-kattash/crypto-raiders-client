@@ -86,7 +86,11 @@ const ImportantCard = ({
 }: Props) => {
   const locale = useLocale();
   const formattedDate = new Date(date as Date);
-  const formattedDateString = formattedDate.toLocaleDateString();
+  const formattedDateString = formattedDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
   
   const getContentByLocale = () => {
     switch (locale) {
@@ -147,7 +151,7 @@ const ImportantCard = ({
             {locale === 'ar' ? artitle : locale === 'en' ? entitle : rutitle}
         </h2>
         <p className="sm:!mx-8 mx-4 sm:!text-sm text-xs" dangerouslySetInnerHTML={{ __html: getContentByLocale().slice(0,500) + "..." as any }}></p>
-        <div className="sm:!mx-8 mx-4 flex items-center gap-1 text-xs justify-start">
+        <div className="sm:!mx-8 mx-4 flex items-center gap-1 text-sm justify-start">
           <PiClockBold />
           <span>{formattedDateString}</span>
         </div>

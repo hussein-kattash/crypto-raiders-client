@@ -61,7 +61,11 @@ const LatestNewsCard = ({_id,artitle,entitle,rutitle,date}:Props) => {
   const locale = useLocale();
   const route = useRouter();
   const formattedDate = new Date(date as Date);
-  const formattedDateString = formattedDate.toLocaleDateString();
+  const formattedDateString = formattedDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
   const t = useTranslations("LatestNews");
 
   return (
@@ -69,9 +73,9 @@ const LatestNewsCard = ({_id,artitle,entitle,rutitle,date}:Props) => {
       <h2 onClick={() => route.push(`/post/${_id}`)} className="xl:!text-lg sm:!text-base text-sm font-medium cursor-pointer hover:underline decoration-primary">
         {locale === 'ar' ? artitle : locale === 'en' ? entitle : rutitle}
       </h2>
-      <div className="text-xs flex justify-start items-center gap-1 mt-4">
+      <div className="text-sm flex justify-start items-center gap-1 mt-4">
         <span className="">{t("news")}</span> -
-        <div className="flex items-center gap-1 justify-start">
+        <div className="flex items-center text-sm gap-1 justify-start">
           <PiClockBold />
           <span>{formattedDateString}</span>
         </div>

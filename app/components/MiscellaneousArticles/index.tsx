@@ -90,7 +90,11 @@ const MiscellaneousArticlesCard = ({
 }: Props) => {
 
   const formattedDate = new Date(date as Date);
-  const formattedDateString = formattedDate.toLocaleDateString();
+  const formattedDateString = formattedDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });;
 
   const locale = useLocale();
   const route = useRouter()
@@ -138,7 +142,7 @@ const MiscellaneousArticlesCard = ({
         <h2 className="hover:underline decoration-primary font-normal text-start xl:!text-lg md:!text-base text-sm px-4">
           {locale === "ar" ? artitle : locale === "en" ? entitle : rutitle}
         </h2>
-        <div className="px-4 flex items-center gap-1 text-xs justify-start">
+        <div className="px-4 flex items-center gap-1 text-sm justify-start">
           <PiClockBold />
           <span>{formattedDateString}</span>
         </div>

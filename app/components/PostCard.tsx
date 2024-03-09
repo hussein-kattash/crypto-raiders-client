@@ -26,8 +26,11 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
 
   const formattedDate = new Date(date as Date);
   
-  // Now format the date using toLocaleDateString()
-  const formattedDateString = formattedDate.toLocaleDateString();
+  const formattedDateString = formattedDate.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
 
   const router = useRouter()
 
@@ -92,9 +95,9 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
             <p className="font-medium"> 
               {locale === 'ar' ? artitle : locale === 'en' ? entitle : rutitle}
             </p>
-            <div className="flex mt-2 items-center gap-1 justify-start">
+            <div className="flex mt-2 items-center text-sm gap-1 justify-start">
               <LuClock3 />
-              <span className="text-sm">{formattedDateString}</span>
+              <span>{formattedDateString}</span>
             </div>
           </div>
         </CardBody>
