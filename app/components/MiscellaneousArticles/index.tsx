@@ -88,7 +88,10 @@ const MiscellaneousArticlesCard = ({
   ruCategory,
   enCategory,
 }: Props) => {
-  const formatDate = new Date(date as Date).toLocaleDateString();
+
+  const formattedDate = new Date(date as Date);
+  const formattedDateString = formattedDate.toLocaleDateString();
+
   const locale = useLocale();
   const route = useRouter()
   
@@ -137,7 +140,7 @@ const MiscellaneousArticlesCard = ({
         </h2>
         <div className="px-4 flex items-center gap-1 text-xs justify-start">
           <PiClockBold />
-          <span>{formatDate}</span>
+          <span>{formattedDateString}</span>
         </div>
       </CardBody>
     </Card>

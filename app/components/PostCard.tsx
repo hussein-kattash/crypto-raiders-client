@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardBody, CardFooter, Image, Button, Chip } from "@nextui-org/react";
 import { useLocale, useTranslations } from "next-intl";
-import React, { useEffect } from "react";
+import React from "react";
 import { LuClock3 } from "react-icons/lu";
 import { TbCircleArrowRight } from "react-icons/tb";
 import { TbCircleArrowLeft } from "react-icons/tb";
@@ -24,7 +24,10 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
   const locale = useLocale();
   let t = useTranslations("PostCard");
 
-  const formatDate = new Date(date as Date).toLocaleDateString();
+  const formattedDate = new Date(date as Date);
+  
+  // Now format the date using toLocaleDateString()
+  const formattedDateString = formattedDate.toLocaleDateString();
 
   const router = useRouter()
 
@@ -91,7 +94,7 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
             </p>
             <div className="flex mt-2 items-center gap-1 justify-start">
               <LuClock3 />
-              <span className="text-sm">{formatDate}</span>
+              <span className="text-sm">{formattedDateString}</span>
             </div>
           </div>
         </CardBody>

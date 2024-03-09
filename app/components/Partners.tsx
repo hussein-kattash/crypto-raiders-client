@@ -20,7 +20,7 @@ const Partners = () => {
     renderMode: "performance",
     drag: false,
     slides: {
-      perView: 3,
+      perView:window.innerWidth > 768 ?  4 : 3,
       spacing: 10,
     },
     created(s) {
@@ -49,9 +49,9 @@ const Partners = () => {
             >
               <img
                 src={partner.image}
-                className="lg:!w-44 lg:!h-44 md!:w-32 md:!h-32 w-20 h-20 rounded-[50%]"
+                className="lg:!w-36 lg:!h-36 md!:w-32 md:!h-26 w-16 h-16 rounded-[50%]"
               />
-              <span className="flex flex-wrap text-center justify-center mt-3 md:text-xl sm:text-sm text-xs font-bold">{partner.name}</span>
+              <span className="flex flex-wrap text-center justify-center mt-3 lg:!text-xl md:!text-base  sm:!text-sm text-xs sm:!font-bold font-normal">{partner.name}</span>
             </div>
           ))}
         </div>

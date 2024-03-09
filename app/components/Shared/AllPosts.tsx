@@ -80,7 +80,9 @@ const NewsCard = ({
 }: Props) => {
   const locale = useLocale();
 
-  const formatDate = new Date(date as Date).toLocaleDateString();
+  const formattedDate = new Date(date as Date);
+  const formattedDateString = formattedDate.toLocaleDateString();
+
   const router = useRouter()
 
   return (
@@ -121,7 +123,7 @@ const NewsCard = ({
         </p>
         <div className="flex flex-row items-center gap-1">
           <LuClock3 />
-          <span className="text-sm">{formatDate}</span>
+          <span className="text-sm">{formattedDateString}</span>
         </div>
       </div>
     </div>

@@ -79,7 +79,9 @@ const ImportantExplanationsCard = ({
 }: Props) => {
   let t = useTranslations("PostCard");
   const locale = useLocale();
-  const formatDate = new Date(date as Date).toLocaleDateString();
+  const formattedDate = new Date(date as Date);
+  const formattedDateString = formattedDate.toLocaleDateString();
+
   const route = useRouter()
 
   return (
@@ -129,7 +131,7 @@ const ImportantExplanationsCard = ({
       </h2>
       <div className="flex mx-2 items-center gap-1 text-xs justify-start">
         <PiClockBold />
-        <span>{formatDate}</span>
+        <span>{formattedDateString}</span>
       </div>
       {locale === "ar" ? (
         <Button

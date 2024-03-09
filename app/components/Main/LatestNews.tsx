@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import React from "react";
-import { CiClock2 } from "react-icons/ci";
+import { PiClockBold } from "react-icons/pi";
 
 const LatestNews = () => {
   const t = useTranslations("LatestNews");
@@ -60,7 +60,8 @@ type Props = {
 const LatestNewsCard = ({_id,artitle,entitle,rutitle,date}:Props) => {
   const locale = useLocale();
   const route = useRouter();
-  const formatDate = new Date(date as Date).toLocaleDateString();
+  const formattedDate = new Date(date as Date);
+  const formattedDateString = formattedDate.toLocaleDateString();
   const t = useTranslations("LatestNews");
 
   return (
@@ -71,8 +72,8 @@ const LatestNewsCard = ({_id,artitle,entitle,rutitle,date}:Props) => {
       <div className="text-xs flex justify-start items-center gap-1 mt-4">
         <span className="">{t("news")}</span> -
         <div className="flex items-center gap-1 justify-start">
-          <CiClock2 />
-          <span>{formatDate}</span>
+          <PiClockBold />
+          <span>{formattedDateString}</span>
         </div>
       </div>
     </div>

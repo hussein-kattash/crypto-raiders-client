@@ -85,7 +85,9 @@ const ImportantCard = ({
   ruContent,
 }: Props) => {
   const locale = useLocale();
-  const formatDate = new Date(date as Date).toLocaleDateString();
+  const formattedDate = new Date(date as Date);
+  const formattedDateString = formattedDate.toLocaleDateString();
+  
   const getContentByLocale = () => {
     switch (locale) {
       case "ar":
@@ -147,7 +149,7 @@ const ImportantCard = ({
         <p className="sm:!mx-8 mx-4 sm:!text-sm text-xs" dangerouslySetInnerHTML={{ __html: getContentByLocale().slice(0,500) + "..." as any }}></p>
         <div className="sm:!mx-8 mx-4 flex items-center gap-1 text-xs justify-start">
           <PiClockBold />
-          <span>{formatDate}</span>
+          <span>{formattedDateString}</span>
         </div>
       </div>
       <div className="mt-8">
