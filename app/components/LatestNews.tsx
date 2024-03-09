@@ -79,7 +79,7 @@ const LatestNews = () => {
             {data.posts.map((item, index) => (
               <div
                 key={index}
-                className={`keen-slider__slide number-slide${index + 1} flex justify-start  text-xs md:!text-sm`}
+                className={`keen-slider__slide number-slide${index + 1} flex justify-center items-center w-full  text-xs md:!text-sm`}
               >
                 {locale === 'ar' ? item.title.ar : locale === "en" ? item.title.en : item.title.ru}
               </div>
