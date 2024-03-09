@@ -23,6 +23,7 @@ import { FaRegQuestionCircle } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import { getAllPartners } from "@/app/services/getAllPartners";
 import { ListboxWrapper } from "../ListboxWrapper";
+import { usePathname } from "next/navigation";
 
 type Props = {
   closeSidebar:()=>void;
@@ -34,28 +35,32 @@ const Sidebar = ({closeSidebar}:Props) => {
     queryFn: getAllPartners,
   });
 
+    
+  const pathname = usePathname();
+  const locale = useLocale();
+
   const items = [
     {
       key: 1,
-      route: "/",
+      route: `/${locale}`,
       label: "home",
       icon: <BsHouseDoor />,
     },
     {
       key: 2,
-      route: "/crypto_news",
+      route: `/${locale}/crypto_news`,
       label: "crypto_news",
       icon: <BsNewspaper />,
     },
     {
       key: 3,
-      route: "/explanations",
+      route: `/${locale}/explanations`,
       label: "explanations",
       icon: <BsNewspaper />,
     },
     {
       key: 4,
-      route: "/all_articles",
+      route: `/${locale}/all_articles`,
       label: "posts",
       icon: <GrArticle />,
     },
@@ -66,19 +71,18 @@ const Sidebar = ({closeSidebar}:Props) => {
     },
     {
       key: 6,
-      route: "/contact_us",
+      route: `/${locale}/contact_us`,
       label: "contactus",
       icon: <BsChatSquareText />,
     },
     {
       key: 7,
-      route: "/who_us",
+      route: `/${locale}/who_us`,
       label: "whous",
       icon: <FaRegQuestionCircle />,
     }
   ];
 
-  const locale = useLocale();
   const [openDropdown1, setOpenDropdown1] = useState(false);
   const [openDropdown2, setOpenDropdown2] = useState(false);
 
@@ -95,7 +99,7 @@ const Sidebar = ({closeSidebar}:Props) => {
               <Link
                 onClick={closeSidebar}
                 href={item.route}
-                className="hover:text-primary flex items-center justify-start gap-2 text-lg"
+                className={`hover:text-primary flex items-center justify-start gap-2 text-lg ${pathname === item.route && 'text-primary'}`}
               >
                 <span>{item.icon}</span>
                  <span>{t(item.label)}</span>

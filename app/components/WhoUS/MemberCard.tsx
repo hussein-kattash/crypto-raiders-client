@@ -12,7 +12,7 @@ const MemberCard = ({ image, name, role, links }: Props) => {
   return (
     <Card className="w-[320px] h-[370px] card_">
       <CardBody className="flex flex-col items-center mt-8">
-        <img src={image} className="w-[140px] h-[140px] rounded-[50%]" />
+        <img src={image} className="sm:!w-[140px] sm:!h-[140px] w-[120px] h-[120px] rounded-[50%]" />
         <h2 className="mt-4">{name}</h2>
         <span>{role}</span>
       </CardBody>

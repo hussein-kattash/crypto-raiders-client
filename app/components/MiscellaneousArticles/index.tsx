@@ -1,11 +1,10 @@
 "use client"
-import { getAllPosts, getAllPosts_ } from "@/app/services/getAllPosts";
+import { getLatestTwentyPosts } from "@/app/services/getLatestTwentyPosts";
 import { Card, CardBody, Chip, Image, Skeleton } from "@nextui-org/react";
 import { useQuery } from "@tanstack/react-query";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
 import { PiClockBold } from "react-icons/pi";
 import { TbCircleArrowLeft, TbCircleArrowRight } from "react-icons/tb";
 
@@ -13,8 +12,8 @@ const MiscellaneousArticles = () => {
   const t = useTranslations("MiscellaneousArticles");
   const tt = useTranslations("PostCard");
   const { data, isError, isLoading } = useQuery({
-    queryKey: ["allposts_"],
-    queryFn:getAllPosts_,
+    queryKey: ["latesttwentyposts"],
+    queryFn:getLatestTwentyPosts,
   });
 
   const locale = useLocale();
@@ -22,15 +21,8 @@ const MiscellaneousArticles = () => {
 
   return (
     <div className="mt-8 border-t-5 border-primary">
-      <div className="flex justify-between items-center pt-1">
+      <div className="flex justify-start pt-1">
         <h2>{t("title")}</h2>
-        <Link
-          href="/all_articles"
-          className="flex items-center gap-1 hover:text-primary text-sm"
-        >
-          <span>{tt("btnName")}</span>
-          {locale === "ar" ? <TbCircleArrowLeft className="text-sm" /> : <TbCircleArrowRight className="text-sm" />}
-        </Link>
       </div>
       <div className="mt-4 grid grid-cols-12 sm:!gap-8 gap-4">
         {isLoading &&
@@ -42,7 +34,7 @@ const MiscellaneousArticles = () => {
           }
         {
           (!isLoading && data) && (
-            data.slice(0,6).map((post)=>(
+            data.posts.slice(0,18).map((post)=>(
               <div key={post._id} className="lg:!col-span-4 sm:!col-span-6 col-span-12">
                 <MiscellaneousArticlesCard
                   _id={post._id}
@@ -60,6 +52,13 @@ const MiscellaneousArticles = () => {
           )
         }
       </div>
+      <Link
+          href="/all_articles"
+          className="flex items-center justify-center gap-2 hover:text-primary text-lg mt-8"
+        >
+          <span>{tt("btnName")}</span>
+          {locale === "ar" ? <TbCircleArrowLeft className="text-xl" /> : <TbCircleArrowRight className="text-xl" />}
+      </Link>
     </div>
   );
 };
@@ -147,7 +146,7 @@ const MiscellaneousArticlesCard = ({
 
 const SkeletonMiscellaneousArticlesCard = () => {
   return (
-    <Card className="min-h-[330px] cursor-pointer rounded w-full lg:!col-span-4 sm:!col-span-6 col-span-12 flex flex-col justify-start">
+    <Card className="cursor-wait min-h-[330px] rounded w-full lg:!col-span-4 sm:!col-span-6 col-span-12 flex flex-col justify-start">
       <Skeleton className="h-[170px]">
         <div className="h-24 bg-default-300"></div>
       </Skeleton>

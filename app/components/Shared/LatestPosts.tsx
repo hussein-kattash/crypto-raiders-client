@@ -96,7 +96,7 @@ const LatestPosts = ({ data, isLoading }: Props) => {
           {data?.map((post, index) => (
             <div
               key={index}
-              className={`keen-slider__slide number-slide${index}`}
+              className={`keen-slider__slide number-slide${index + 1}`}
             >
               <PostCard
                 _id={post._id}

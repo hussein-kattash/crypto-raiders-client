@@ -30,12 +30,9 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
   const router = useRouter()
 
   return (
-    <div>
       <Card
         className="w-[100%] min-h-[350px] flex flex-col justify-start"
         shadow="sm"
-        isPressable
-        onPress={() => router.push(`/post/${_id}`)}
       >
         <CardBody className="overflow-visible p-0">
           {
@@ -100,32 +97,17 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
           </div>
         </CardBody>
         <CardFooter className="flex flex-col items-start justify-start">
-          <ClientOnly>
-            {locale === "ar" ? (
               <Button
                 color="primary"
-                endContent={<TbCircleArrowLeft className="text-lg" />}
+                endContent={locale === "ar"? <TbCircleArrowLeft className="text-lg" /> : <TbCircleArrowRight className="text-lg" />}
                 variant="bordered"
                 className="hover:bg-primary hover:text-white"
                 onClick={() => {router.push(`/post/${_id}`)}}
               >
                 {t("btnName")}
               </Button>
-            ) : (
-              <Button
-                color="primary"
-                endContent={<TbCircleArrowRight className="text-lg" />}
-                variant="bordered"
-                className="hover:bg-primary hover:text-white"
-                onClick={() => {router.push(`/post/${_id}`)}}
-              >
-                {t("btnName")}
-              </Button>
-            )}
-          </ClientOnly>
         </CardFooter>
       </Card>
-    </div>
   );
 };
 

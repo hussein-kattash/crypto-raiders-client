@@ -30,6 +30,7 @@ import { FaBars } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
   let t = useTranslations("Header");
@@ -43,11 +44,11 @@ const Header = () => {
   const [openDropdown2, setOpenDropdown2] = useState(false);
 
   const locale = useLocale();
-
+  const pathname = usePathname();
   return (
     <div ref={header} className="w-full fixed z-[100] h-[83px] top-0 bg-content1 flex justify-between items-center px-[5%] py-2 border-b">
       <div className="w-[90px] flex justify-between xl:!justify-start items-center">
-        <Link href={"/"}>
+        <Link href={`/${locale}`}>
           <Image src="/logo.png" alt="Cryptoraiders" className="w-24" />
         </Link>
       </div>
@@ -67,26 +68,26 @@ const Header = () => {
       <div className="w-[70%] xl:flex hidden justify-center px-8">
         <div className="flex flex-row items-center justify-around w-full">
           <Link
-            href="/"
-            className="hover:text-primary duration-500 flex gap-1 items-center"
+            href={`/${locale}`}
+            className={`hover:text-primary duration-500 flex gap-1 items-center ${pathname === `/${locale}` && 'text-primary'}`}
           >
             <BsHouseDoor /> {t("home")}
           </Link>
           <Link
-            href="/crypto_news"
-            className="hover:text-primary duration-500 flex gap-1 items-center"
+            href={`/${locale}/crypto_news`}
+            className={`hover:text-primary duration-500 flex gap-1 items-center ${pathname === `/${locale}/crypto_news` && 'text-primary'}`}
           >
             <BsNewspaper /> {t("crypto_news")}
           </Link>
           <Link
-            href="/explanations"
-            className="hover:text-primary duration-500 flex gap-1 items-center"
+            href={`/${locale}/explanations`}
+            className={`hover:text-primary duration-500 flex gap-1 items-center ${pathname === `/${locale}/explanations` && 'text-primary'}`}
           >
             <BsNewspaper /> {t("explanations")}
           </Link>
           <Link
-            href="/all_articles"
-            className="hover:text-primary duration-500 flex gap-1 items-center"
+            href={`/${locale}/all_articles`}
+            className={`hover:text-primary duration-500 flex gap-1 items-center ${pathname === `/${locale}/all_articles` && 'text-primary'}`}
           >
             <GrArticle /> {t("posts")}
           </Link>
@@ -200,14 +201,14 @@ const Header = () => {
             </DropdownMenu>
           </Dropdown>
           <Link
-            href="/contact_us"
-            className="hover:text-primary duration-500 flex gap-1 items-center"
+            href={`/${locale}/contact_us`}
+            className={`hover:text-primary duration-500 flex gap-1 items-center ${pathname === `/${locale}/contact_us` && 'text-primary'}`}
           >
             <BsChatSquareText /> {t("contactus")}
           </Link>
           <Link
-            href="/who_us"
-            className="hover:text-primary duration-500 flex gap-1 items-center"
+            href={`/${locale}/who_us`}
+            className={`hover:text-primary duration-500 flex gap-1 items-center ${pathname === `/${locale}/who_us` && 'text-primary'}`}
           >
             <FaRegQuestionCircle /> {t("whous")}
           </Link>

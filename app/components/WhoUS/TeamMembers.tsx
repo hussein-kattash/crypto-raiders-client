@@ -16,16 +16,8 @@ const TeamMembers = () => {
   });
 
   return (
-    <div className="mt-6">
-      <h2
-        className={`border-b border-primary block ${
-          locale === "ar"
-            ? "w-[130px]"
-            : locale === "en"
-            ? "w-[150px]"
-            : "w-[160px]"
-        }`}
-      >
+    <div className="mt-6 border-t-5 border-primary pt-2">
+      <h2>
         {t("title")}:
       </h2>
       <div className="mt-6 flex flex-row justify-center items-center flex-wrap gap-6">
