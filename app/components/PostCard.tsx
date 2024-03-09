@@ -2,10 +2,9 @@
 import { Card, CardBody, CardFooter, Image, Button, Chip } from "@nextui-org/react";
 import { useLocale, useTranslations } from "next-intl";
 import React, { useEffect } from "react";
-import { CiClock2 } from "react-icons/ci";
+import { LuClock3 } from "react-icons/lu";
 import { TbCircleArrowRight } from "react-icons/tb";
 import { TbCircleArrowLeft } from "react-icons/tb";
-import ClientOnly from "./ClientOnly";
 import { useRouter } from "next/navigation";
 
 
@@ -91,7 +90,7 @@ const PostCard = ({image, entitle, rutitle, artitle, date, _id, arCategory, ruCa
               {locale === 'ar' ? artitle : locale === 'en' ? entitle : rutitle}
             </p>
             <div className="flex mt-2 items-center gap-1 justify-start">
-              <CiClock2 />
+              <LuClock3 />
               <span className="text-sm">{formatDate}</span>
             </div>
           </div>

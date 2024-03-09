@@ -5,8 +5,6 @@ import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 import { LuClock3 } from "react-icons/lu";
-import { PartnersContext } from "@/app/context/partnersContext";
-import { title } from "process";
 
 type AllPostsProps = {
     data:PostModel[] | undefined,

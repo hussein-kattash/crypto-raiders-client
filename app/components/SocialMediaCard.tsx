@@ -1,10 +1,12 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
 
 const SocialMediaCard = () => {
   const t = useTranslations("socialMedia");
   const tt = useTranslations("channels");
+  const locale = useLocale();
+
   return (
     <div className="flex flex-col justify-center items-center">
       <h2 className="text-2xl font-semibold">{t("title")}</h2>
@@ -43,7 +45,7 @@ const SocialMediaCard = () => {
           <span className="text-sm text-center">{tt("channel5")}</span>
         </a>
       </div>
-      <Link className="mt-4 text-xs hover:underline hover:decoration-primary" href={'/who_us'}>{t("showmore")}</Link>
+      <Link className="mt-4 text-xs hover:underline hover:decoration-primary" href={`/${locale}/who_us`}>{t("showmore")}</Link>
     </div>
   );
 };
