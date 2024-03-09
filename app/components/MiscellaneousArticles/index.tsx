@@ -54,7 +54,6 @@ const MiscellaneousArticles = () => {
       </div>
       <Link
           href={`/${locale}/all_articles`}
-          // href={'/all_articles'}
           className="flex items-center justify-center gap-2 hover:text-primary text-lg mt-8"
         >
           <span>{tt("btnName")}</span>
