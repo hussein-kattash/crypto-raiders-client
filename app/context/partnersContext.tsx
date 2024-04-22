@@ -2,7 +2,7 @@ import React, { createContext, useState, ReactNode, Dispatch, SetStateAction } f
 import { PartnerModel } from '../models/PartnerModel';
 
 export interface PartnersContextProps {
-    partners: PartnerModel[]; // Corrected type: an array of PartnerModel
+    partners: PartnerModel[];
     setPartners: Dispatch<SetStateAction<PartnerModel[]>>;
     currentPage:number;
     setCurrentPage: Dispatch<SetStateAction<number>>;

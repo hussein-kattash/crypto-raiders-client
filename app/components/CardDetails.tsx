@@ -13,13 +13,18 @@ import {
   WhatsappShareButton,
   TelegramShareButton,
   TwitterShareButton,
+  TelegramIcon,
+  FacebookIcon,
+  XIcon,
+  WhatsappIcon,
 } from "react-share";
 import AllAds from "./AllAds";
+
 
 const CardDetails = () => {
   const locale = useLocale();
   const params = useParams();
-  const t = useTranslations("postdetails")
+  const t = useTranslations("postdetails");
 
   const { data, isError, isLoading } = useQuery({
     queryKey: ["post"],
@@ -66,23 +71,32 @@ const CardDetails = () => {
   };
 
   const shareUrl = `https://cryptoraiders.org/${locale}/post/${params.id}`;
- 
+
   return (
-    <div className="mt-12 grid grid-cols-12 gap-4">
+    <div className="mt-12 grid grid-cols-12 gap-4 details">
       <div
-        className={`lg:!col-span-8 col-span-12 ${locale === "ar" ? "lg:!border-l" : "lg:!border-r"}`}
+        className={`lg:!col-span-8 col-span-12 ${
+          locale === "ar" ? "lg:!border-l" : "lg:!border-r"
+        }`}
       >
         {isLoading && <SkeletonCardDetails />}
         {!isLoading && data && (
           <div className="flex flex-col items-start gap-8 p-4">
-            <h2 className="md:!text-3xl text-xl font-semibold">{getTitleByLocale()}</h2>
+            <h2 className="md:!text-3xl text-xl font-semibold">
+              {getTitleByLocale()}
+            </h2>
             <div className="flex justify-center gap-2">
-              {getCategoryByLocale()?.map((category,idx) => (
-                <Chip key={idx} color="primary">{category}</Chip>
+              {getCategoryByLocale()?.map((category, idx) => (
+                <Chip key={idx} color="primary">
+                  {category}
+                </Chip>
               ))}
             </div>
             {data.image && (
-              <img src={data?.image} className="w-full sm:!h-[400px] h-[220px]" />
+              <img
+                src={data?.image}
+                className="w-full sm:!h-[400px] h-[220px]"
+              />
             )}
             <div
               dangerouslySetInnerHTML={{ __html: getContentByLocale() as any }}
@@ -90,20 +104,20 @@ const CardDetails = () => {
             <div className="mt-10 font-bold">{t("share")} :</div>
             <div className="flex  md:w-[50%] w-[90%] rounded flex-row gap-8 py-2 mt-0 justify-center mx-auto items-center">
               <FacebookShareButton url={shareUrl}>
-                 <img src="/facebook.png" className="w-[40px]"/>
+                <FacebookIcon size={32} round />
               </FacebookShareButton>
               <WhatsappShareButton url={shareUrl}>
-              <img src="/whatsapp.png" className="w-[40px]"/>
+                <WhatsappIcon size={32} round />
               </WhatsappShareButton>
               <TelegramShareButton url={shareUrl}>
-              <img src="/telegram.png" className="w-[40px]"/>
+                <TelegramIcon size={32} round />
               </TelegramShareButton>
               <TwitterShareButton url={shareUrl}>
-              <img src="/twitter.png" className="w-[40px]"/>
+                <XIcon size={32} round />
               </TwitterShareButton>
             </div>
             <div className="w-[100%]">
-              <AllAds/>
+              <AllAds />
             </div>
           </div>
         )}

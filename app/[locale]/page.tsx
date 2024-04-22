@@ -1,5 +1,4 @@
 import AllAds from "../components/AllAds";
-import LatestArticles from "../components/LatestArticles";
 import Partners from "../components/Partners";
 import LatestAds from "../components/LatestAds";
 import Main from "../components/Main";

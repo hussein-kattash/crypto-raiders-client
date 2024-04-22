@@ -61,7 +61,7 @@ const AllAds = () => {
               href={ads.link}
               target="_blank"
               key={idx}
-              className="keen-slider__slide number-slide1 sm:!w-[500px] w-[100%] h-[50px] sm:!h-[100px]"
+              className="keen-slider__slide number-slide1 sm:!w-[500px] w-[100%] h-auto"
             >
               <img className="h-full w-full" src={ads.image} />
             </a>
