@@ -27,9 +27,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 
   return {
+    metadataBase:new URL(`https://cryptoraiders.org/${locale}/post/${params.id}`),
     title: locale === 'ar' ? data?.title.ar : locale === 'en' ? data?.title.en : data.title.ru,
     description: sanitizedContent,
+    twitter:{
+      title: locale === 'ar' ? data?.title.ar : locale === 'en' ? data?.title.en : data.title.ru,
+      description: sanitizedContent,
+      images:[data?.image]
+    },
     openGraph: {
+      url:`https://cryptoraiders.org/${locale}/post/${params.id}`,
+      title: locale === 'ar' ? data?.title.ar : locale === 'en' ? data?.title.en : data.title.ru,
+      description: sanitizedContent,
           images:[data?.image]
         }
   };
