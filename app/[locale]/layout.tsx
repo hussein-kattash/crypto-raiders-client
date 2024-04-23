@@ -10,15 +10,27 @@ import Footer from "../components/Common/Footer";
 
 
 export const metadata: Metadata = {
-  title: "Cryptoraiders",
+  metadataBase: new URL("https://cryptoraiders.org"),
+  title: {
+    default: "Cryptoraiders",
+    template: `%s | Cryptoraiders`,
+  },
   description: "The Crypto Raiders team is the largest team in the Middle East that provides advisory services to individuals and companies looking to benefit from financial technology and digital currencies in their businesses. Our team is considered a reliable source of information and education for beginners in the field of digital currencies. We work hard to enhance awareness and promote commercial exchange in the crypto market permanently and continuously",
   openGraph:{
-    images:['/channel2.jpg']
+    images:[{
+      url:'/channel2.jpg',
+      width: 400,
+      height: 200,
+    }]
   },
   twitter:{
     title: "Cryptoraiders",
     description: "The Crypto Raiders team is the largest team in the Middle East that provides advisory services to individuals and companies looking to benefit from financial technology and digital currencies in their businesses. Our team is considered a reliable source of information and education for beginners in the field of digital currencies. We work hard to enhance awareness and promote commercial exchange in the crypto market permanently and continuously",
-    images:['/channel2.jpg']
+    images:[{
+      url:'/channel2.jpg',
+      width: 400,
+      height: 200,
+    }]
   }
 };
 

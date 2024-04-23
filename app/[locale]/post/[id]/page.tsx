@@ -14,31 +14,44 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     // Extract the content based on the locale
     let content = '';
+    let title = '';
     if (locale === 'ar') {
       content = data?.content.ar;
+      title = data?.title.ar;
     } else if (locale === 'en') {
       content = data?.content.en;
+      title = data?.title.en;
     } else {
       content = data.content.ru;
+      title = data?.title.ru;
     }
 
   // Handle HTML tags in the content
-  const sanitizedContent = content.replace(/<\/?[^>]+(>|$)/g, ''); // Remove HTML tags
+  const sanitizedContent = content.replace(/<\/?[^>]+(>|$)/g, '').slice(0,200); // Remove HTML tags
 
 
   return {
-    metadataBase:new URL(`https://cryptoraiders.org/${locale}/post/${params.id}`),
-    title: locale === 'ar' ? data?.title.ar : locale === 'en' ? data?.title.en : data.title.ru,
+    title: title,
     description: sanitizedContent,
+    alternates: {
+      canonical: `/${locale}/post/${id}`,
+    },
     twitter:{
-      title: locale === 'ar' ? data?.title.ar : locale === 'en' ? data?.title.en : data.title.ru,
+      title: title,
       description: sanitizedContent,
-      images:[data?.image]
+      images:[
+        {
+          url:data?.image,
+          width: 1260,
+          height:800
+        }
+      ]
     },
     openGraph: {
-      url:`https://cryptoraiders.org/${locale}/post/${params.id}`,
-      title: locale === 'ar' ? data?.title.ar : locale === 'en' ? data?.title.en : data.title.ru,
+      url:`/${locale}/post/${params.id}`,
+      title: title,
       description: sanitizedContent,
+      siteName:"Cryptoraiders",
           images:[data?.image]
         }
   };

@@ -103,16 +103,16 @@ const CardDetails = () => {
             />
             <div className="mt-10 font-bold">{t("share")} :</div>
             <div className="flex  md:w-[50%] w-[90%] rounded flex-row gap-8 py-2 mt-0 justify-center mx-auto items-center">
-              <FacebookShareButton url={shareUrl}>
+              <FacebookShareButton url={shareUrl} title={getTitleByLocale()}>
                 <FacebookIcon size={32} round />
               </FacebookShareButton>
-              <WhatsappShareButton url={shareUrl}>
+              <WhatsappShareButton url={shareUrl} title={getTitleByLocale()}>
                 <WhatsappIcon size={32} round />
               </WhatsappShareButton>
-              <TelegramShareButton url={shareUrl}>
+              <TelegramShareButton url={shareUrl} title={getTitleByLocale()}>
                 <TelegramIcon size={32} round />
               </TelegramShareButton>
-              <TwitterShareButton url={shareUrl}>
+              <TwitterShareButton url={shareUrl} title={getTitleByLocale()}>
                 <XIcon size={32} round />
               </TwitterShareButton>
             </div>
